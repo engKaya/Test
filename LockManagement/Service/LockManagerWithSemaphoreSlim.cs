@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
-using Test.Interfaces;
+using LockManagement.Interfaces; 
 
-namespace Test.Service
+namespace LockManagement.Service
 {
     public class LockManagerWithSemaphoreSlim : ILockManager
     {

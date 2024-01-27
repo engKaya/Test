@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics;
-using Test.Classes;
-using Test.Interfaces;
-using Test.Service; 
+using LockManagement.Classes;
+using LockManagement.Interfaces;
+using LockManagement.Service; 
 var transactions = new List<Transaction>() {  
     new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
     new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 }

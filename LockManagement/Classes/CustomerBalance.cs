@@ -1,4 +1,4 @@
-﻿namespace Test.Classes
+﻿namespace LockManagement.Classes
 {
     public class CustomerBalance
     {

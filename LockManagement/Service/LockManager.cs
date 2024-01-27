@@ -1,8 +1,8 @@
 ﻿using System.Collections.Concurrent;
-using Test.Classes;
-using Test.Interfaces;
+using LockManagement.Classes;
+using LockManagement.Interfaces;
 
-namespace Test.Service
+namespace LockManagement.Service
 {
     internal class LockManager: ILockManager
     {

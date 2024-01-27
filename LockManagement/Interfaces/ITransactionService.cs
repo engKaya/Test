@@ -1,4 +1,4 @@
-﻿namespace Test.Interfaces
+﻿namespace LockManagement.Interfaces
 {
     public interface ITransactionService
     {

@@ -1,6 +1,6 @@
-﻿using Test.Classes;
+﻿using LockManagement.Classes;
 
-namespace Test
+namespace LockManagement
 {
     public static class StaticCustomerRepository
     {
