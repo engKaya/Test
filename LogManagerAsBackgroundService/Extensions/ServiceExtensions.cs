@@ -1,4 +1,5 @@
-﻿using LogManagerAsBackgroundService.Interfaces.Business;
+﻿using LogManagerAsBackgroundService.Implements;
+using LogManagerAsBackgroundService.Interfaces.Business;
 
 namespace LogManagerAsBackgroundService.Extensions
 {
@@ -9,7 +10,7 @@ namespace LogManagerAsBackgroundService.Extensions
             using IServiceScope scope = app.ApplicationServices.CreateScope();
 
             scope.ServiceProvider.GetRequiredService<IBusinessService>().DoWork();
-
+            scope.ServiceProvider.GetRequiredService<LogWorker>().StartAsync(CancellationToken.None);
 
             return app;
         }

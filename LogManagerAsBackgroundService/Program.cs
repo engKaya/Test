@@ -1,4 +1,5 @@
 using LogManagerAsBackgroundService.Extensions;
+using LogManagerAsBackgroundService.Implements;
 using LogManagerAsBackgroundService.Implements.Business;
 using LogManagerAsBackgroundService.Interfaces.Business;
 
@@ -11,6 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHostedService<LogWorker>();   
+
+builder.Services.AddSingleton<IBackgroundTaskQueue>(ctx => { 
+    return new BackgroundTaskQueue();
+});
 builder.Services.AddSingleton<IBusinessService, BusinessService>();
 
 var app = builder.Build();
@@ -26,6 +32,5 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
-app.DoWork();
+app.MapControllers(); 
 app.Run();
