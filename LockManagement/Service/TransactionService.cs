@@ -17,9 +17,9 @@ namespace LockManagement.Service
             Console.WriteLine($"Transaction for customer {customerNumber} with card {CardNumber} for {transaction} started. Thread Name: {thread?.Name ?? "Null"}");
 
             var customerBalance = customerBalances.FirstOrDefault(x => x.CustomerNumber == customerNumber && x.CardNumber == CardNumber);
-            var lockObject = _lockManager.LockCustomer(customerNumber, CardNumber, thread) as SemaphoreSlim;
-            Console.WriteLine($"Entering Lock for thread {thread?.Name} by {lockObject}");
-            lockObject.Wait();
+            var lockObject = _lockManager.LockCustomer(customerNumber, CardNumber, thread) as Semaphore;
+            Console.WriteLine($"Entering Lock for thread {thread?.Name} by {lockObject.ToString()}");
+            lockObject.WaitOne();
             decimal oldBalance = 0.0m;
             if (customerBalance == null)
             {

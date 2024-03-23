@@ -5,12 +5,12 @@ namespace LockManagement.Service
 {
     public class LockManagerWithSemaphoreSlim : ILockManager
     {
-        private static readonly ConcurrentDictionary<string, SemaphoreSlim> _lockObjects = new ConcurrentDictionary<string, SemaphoreSlim>();
+        private static readonly ConcurrentDictionary<string, Semaphore> _lockObjects = new ConcurrentDictionary<string, Semaphore>();
         public object LockCustomer(string customerNumber, string cardNumber, Thread? thread = null)
         {
-            var id = $"{customerNumber}{cardNumber}";
+            var id = $"{customerNumber.GetHashCode()}{cardNumber}";
             Console.WriteLine($"Entering Lock for thread {thread?.Name} by {id}");
-            _lockObjects.TryAdd(id, new SemaphoreSlim(1, 1));
+            _lockObjects.TryAdd(id, new Semaphore(1, 1));
             return _lockObjects[id];
         }
 

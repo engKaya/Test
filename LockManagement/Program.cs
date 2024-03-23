@@ -5,6 +5,15 @@ using LockManagement.Interfaces;
 using LockManagement.Service; 
 var transactions = new List<Transaction>() {  
     new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
+    new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
+    new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
+    new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
+    new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
+    new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
+    new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
+    new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
+    new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 },
+    new Transaction { CustomerNumber = "1", CardNumber = "1111111111111111", TransactionAmount = 100 },
     new Transaction { CustomerNumber = "2", CardNumber = "2222222222222222", TransactionAmount = 100 }
 };
 
@@ -16,7 +25,7 @@ serviceCollection.AddSingleton<ITransactionService, TransactionService>();
 var taskCount = transactions.Count;
 var tasks = new Task[taskCount];
 
-var transactionService = serviceCollection.BuildServiceProvider().GetService<ITransactionService>(); 
+var transactionService = serviceCollection.BuildServiceProvider().GetRequiredService<ITransactionService>(); 
 
 for (int i = 0; i < taskCount; i++)
 {
